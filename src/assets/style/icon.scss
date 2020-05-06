@@ -1,0 +1,29 @@
+.icon_cancel, .icon_ready {
+    position: absolute;
+    transform: rotate(-30deg);
+}
+.icon_cancel::after, .icon_ready::after {
+    
+    display: block;
+    width: .5rem;
+    height: .5rem;
+    line-height: .5rem;
+    
+    font-size: 12px;
+    text-align: center;
+    border-radius: .5rem;
+    font-style: normal;
+}
+
+.icon_cancel::after {
+    border: 1px dashed red;
+    color: red;
+    content: "已取消";
+}
+
+.icon_ready::after {
+    border: 1px dashed #b4b700;
+    color: #b4b700;
+    content: "进行中";
+}
+

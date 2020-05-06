@@ -1,0 +1,18 @@
+.selectMenu {
+    display: flex;
+    border-bottom: 1px solid #ededed;
+    .selected {
+        font-weight: bold;
+        color: #f35353 !important;
+        border-bottom: 1px solid #f35353;
+    }
+}
+
+.selectMenu > li , .selectMenu > a {
+    flex: 1;
+    height: .4rem;
+    text-align: center;
+    line-height: .4rem;
+    
+}
+

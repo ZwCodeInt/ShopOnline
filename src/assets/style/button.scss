@@ -1,0 +1,35 @@
+.btn {
+    height: 38px;
+    line-height: 38px;
+    margin: 6px 5px 0 0;
+    border-radius: 38px;
+    color: white;
+    padding: 0 10px;
+}
+.btn_red {
+    background-image: -webkit-linear-gradient(315deg,#f2140c,#f2270c 70%,#f24d0c);
+    background-image: linear-gradient(135deg,#f2140c,#f2270c 70%,#f24d0c);
+}
+
+.btn_yellow {
+    background-image: -webkit-linear-gradient(315deg,#ffba0d,#ffc30d 69%,#ffcf0d);
+    background-image: linear-gradient(135deg,#ffba0d,#ffc30d 69%,#ffcf0d);
+}
+
+.icon_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 44px;
+}
+.icon_close::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURUdwTPLy8vPz8/f39/Ly8vLy8vLy8vn5+fLy8vPz8/Ly8vPz8/Ly8oyMjLa2tpaWlsXFxWJZmN4AAAAMdFJOUwDociPz1lIPf6i/gtWaRhUAAADZSURBVDjLlZXbDoQgDEQBi9yK+P9fu7hZFbHK7DzZeOIE2o5KXTSZEC2RjcFM6lEuWW5kk5MxT9yJvIDOmgXpuec8P8hfbQM/KrT2L1wlAd/OfeaBfidyegRqhxgf5o7GIG2fTGe9luUslrKeRapg09+S80EuOZem73VeGof6ciebx68mZVgie45N15QdKB1X2xNZIi/H2hSVZZHsZdXtFmWSZPBOkmgtkFY8jOAe5eu5kwG/cLiF8FDgYwYPLrwK+HLB64oHAB4peEjBsfdHkOLRjIf94PfxAYczOyeXERCMAAAAAElFTkSuQmCC);
+    background-size: cover;
+}
