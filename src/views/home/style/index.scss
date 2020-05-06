@@ -1,0 +1,51 @@
+.title {
+    padding-top: 5px;
+}
+
+.title_wrap {
+    line-height: .16rem;
+}
+
+.s_title {
+    font-size: .16rem;
+    float: left;
+}
+
+.s_title2 {
+    float: left;
+    padding-left: 10px;
+}
+
+.ftimer {
+    font-size: .12rem;
+    border: 1px solid #dfdfdf;
+    padding: 0 2px;
+    margin-left: 2px;
+}
+
+.fs_content {
+    text-align: center;
+    display: flex;
+    .o_price {
+        text-decoration: line-through;
+        
+    }
+    .n_price {
+        color: #e93b3d;
+        
+    }
+    img {
+        width: 100%;
+        display: block;
+    }
+}
+
+.fs_content li {
+    float: left;
+    width: .7rem;
+    flex-shrink: 0;
+}
+
+.fs_sco {
+    overflow: auto;
+}

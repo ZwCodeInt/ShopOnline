@@ -27,6 +27,8 @@
             
         </ul>
         <div class="hr"></div>
+        <flashSale />
+        <div class="hr"></div>
         <topProduct />
         <div class="hr"></div>
         <hotProduct />   
@@ -42,6 +44,7 @@
     import hotProduct from '@/views/home/components/hot.vue'
     import topProduct from '@/views/home/components/top.vue'
     import bottomMenu from '@/components/tools/bottomMenu.vue'
+    import flashSale from './components/flashSale/index.vue'
     export default {
         components: {        
             hotProduct,
@@ -49,7 +52,8 @@
             search,
             bottomMenu,
             banner,
-            headerTop
+            headerTop,
+            flashSale
         },
         mounted() {
             window.onscroll = this.getTop;

@@ -108,10 +108,10 @@ export default {
     padding: .05rem 0;
   }
   .f12 {
-    font-size: 12px
+    font-size: .12rem
   }
   .f20 {
-    font-size: 20px
+    font-size: .2rem
   }
   .timer {
     font-size: 12px;
