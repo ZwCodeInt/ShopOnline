@@ -61,6 +61,8 @@
                 </div>
             </div>
         </div>
+        <comment />
+        <div class="hr"></div>
         <detailContent :content="product.content" />
         <transition>
              <div v-if="isBuy" class="c" :key="1" @touchmove.prevent  @mousewheel.prevent></div>
@@ -91,14 +93,16 @@
 
 <script>
     import headerTop from "@/components/tools/header.vue";
-    import detailContent from "@/views/product/components/detail/content.vue";
-    import typeItem from "@/views/product/components/detail/typeItem.vue";
+    import detailContent from "./content";
+    import typeItem from "./typeItem";
+    import comment from './comment'
     import axios from "axios";
     export default {
         components: {
             detailContent,
             typeItem,
-            headerTop
+            headerTop,
+            comment
         },
         data() {
             return {
