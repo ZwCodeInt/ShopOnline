@@ -2,7 +2,7 @@
     <div class="content">
         <div class="clear">
             <div class="fl fb">
-                <span>评论</span>
+                <span>评论&nbsp;</span>
                 <span>2400+</span>
             </div>
             <div class="fr f12">
@@ -14,7 +14,7 @@
         <div class="com">
             <div class="comTitle clear">
                 <img class="smallImg" src="//storage.360buyimg.com/i.imageUpload/77644e7650424c7453545a7a594e5831343631373534313435393331_sma.jpg" />
-                <span class="uname">lwz2292999</span>
+                <span class="uname f12">lwz2292999</span>
                 <span>5</span>
                 <span class="fr f12">2017-02-02</span>
             </div>
@@ -34,7 +34,7 @@
         <div class="com">
             <div class="comTitle clear">
                 <img class="smallImg" src="//storage.360buyimg.com/i.imageUpload/77644e7650424c7453545a7a594e5831343631373534313435393331_sma.jpg" />
-                <span class="uname">lwz2292999</span>
+                <span class="uname f12">lwz2292999</span>
                 <span>5</span>
                 <span class="fr f12">2017-02-02</span>
             </div>

@@ -212,6 +212,21 @@ const routes = [
         }
       }
     ]
+  },
+  {
+    path: '/activity',
+    name: 'activity',
+    component: () => import('../views/activity/index.vue'),
+    meta: {
+      keepAlive: false
+    },
+    children: [
+      {
+        name: 'activityCoupon',
+        path: '/activity/coupon',
+        component: () => import('../views/activity/components/coupon/index.vue')
+      }
+    ]
   }
 ]
 
