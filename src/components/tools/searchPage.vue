@@ -3,7 +3,7 @@
         <div class="searchHeader">
             <div class="rtn" @click="close()">&lt;</div>
             <div class="flx"><input type="text" class="input" v-model="search" /></div>    
-            <div class="sF">搜索</div>
+            <div class="sF" @click="searchProduct()">搜索</div>
         </div>    
         <div class="content">
             <div class="clear">
@@ -27,6 +27,10 @@ export default {
     methods: {
         close() {
             this.$emit("close")
+        },
+        searchProduct() {
+            this.$router.push({ name: 'list', query: { keyword: this.search } })
+            this.close()
         }
     },
     data() {

@@ -16,3 +16,18 @@
     
 }
 
+.selectMenuChi {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background: white;
+}
+
+.selectMenuChi > li {
+    width: 100%;
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ededed;
+    box-sizing: border-box;
+}
+

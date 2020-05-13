@@ -2,6 +2,7 @@
     <div class="headerHr">
         <headerTop :headerMsg="headerMsg" />
         <search />
+        <filterSearch />
         <div class="content">
             <productList :products="products" />
         </div>
@@ -16,12 +17,14 @@
     import axios from "axios";
     import search from '@/components/tools/search.vue'
     import productList from '@/components/list/productList.vue'
+    import filterSearch from './filter'
     export default {
         components: {
             productList,
             search,
             headerTop,
-            bottomMenu
+            bottomMenu,
+            filterSearch
         },
         data() {
             return {
