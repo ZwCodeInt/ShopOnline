@@ -1,8 +1,11 @@
 <template>
     <div>
         <headerTop :headerMsg="headerMsg" />
-        <div class="content" v-for="p in cartProduc" :key="p.id">
+        <div class="content" v-for="p in carts" :key="p.id">
             <div class=" clear section sc">
+                <div class="select">
+                    <Checkbox v-model="p.isSel" @on-change="selectProc"></Checkbox>
+                </div>
                 <div class="product">
                     <img class="smallImg" :src="p.image" />
                 </div>
@@ -12,9 +15,9 @@
                     <div class="p_s">
                         <span class="price fl">￥{{ p.price }}.00</span>
                         <div class="compute fr">
-                            <div class="less">-</div>
+                            <div class="less" @click="lessProduct(p)">-</div>
                             <div class="num">{{ p.count }}</div>
-                            <div class="add">+</div>
+                            <div class="add" @click="addProduct(p)">+</div>
                         </div>
                     </div>
                 </div>
@@ -23,9 +26,8 @@
         <div class="resultHr"></div>
         <div class="result">
             <div class="total">
-                <span class="row fl"><Checkbox >全选</Checkbox></span>
-                <span>合计：<label class="price">${{ cartTotal }}.00</label></span>
-
+                <span class="row fl"><Checkbox v-model="all" @on-change="allSel">全选</Checkbox></span>
+                <span>合计：<label class="price">${{ totalPrice }}.00</label></span>
             </div>
             <div class="go">
                 <label>提交订单</label>
@@ -44,28 +46,70 @@
         data() {
             return {
                 headerMsg: "购物车",
-               
+                carts: this.$store.getters["shopcar/cartProducts"],
+                all: false
             }
         },
-        computed: {
-            
-            cartProduc() {
-              
-                return this.$store.getters["shopcar/cartProducts"];
+        methods: {
+            selectProc(){
+                this.isAllSel();
             },
-            cartTotal() {
-    
-                return this.$store.getters["shopcar/cartTotalPrice"]
+            addProduct(e) {
+                e.count++;          
+            },
+            lessProduct(e) {
+                if(e.count <= 1){
+                    return;
+                }
+                e.count--;     
+            },
+            createOrder() {
+
+            },
+            allSel() { 
+                if(this.all) {
+                    this.carts.forEach(x => {
+                        x.isSel = true;
+                    });
+                } else {
+                    this.carts.forEach(x => {
+                        x.isSel = false;
+                    });
+                }
+            },
+            isAllSel() {
+                if(this.carts.filter(x => !x.isSel).length == 0) {
+                    this.all = true
+                }else {
+                    this.all = false;
+                }
             }
         },
-        created() {
-
+        computed: {          
+            totalPrice() {
+                return this.carts.reduce((total, data) => {
+                    if(data.isSel) { 
+                        total += data.price * data.count
+                    }
+                    return total;
+                }, 0)
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
     @import '@/assets/style/computer.scss';
+    .select {
+        position: relative;
+        z-index: 9;
+        height: .9rem;
+        float: left;
+        margin-top: .2rem;
+        display: flex;
+        align-items: center;
+        padding: 0 .05rem;
+    }
     .resultHr::after {
         height: .5rem;
         display: block;
@@ -79,6 +123,7 @@
         left: 0;
         width: 100%;
         background: white;
+        z-index: 10;
     }
     .result .total, .result .go {
         height: .5rem;
@@ -116,12 +161,12 @@
         float: left;
     }
     .smallImg {
-        width: 1rem;
-        height: 1rem;
+        width: .9rem;
+        height: .9rem;
         display: block;
     }
     .detail {
-        padding-left: 1.1rem;
+        padding-left: 1.3rem;
         position: absolute;
         height: 1rem;
         width: calc(100% - .1rem);

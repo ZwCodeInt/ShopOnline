@@ -3,27 +3,40 @@ import products from './products'
 const state = {
     shopcartProducts: [{
         id: 1,
-        count: 1
+        count: 1,
+        isSel: true
+    }, {
+        id: 2,
+        count: 2,
+        isSel: true
+    }, {
+        id: 3,
+        count: 2,
+        isSel: false
+    }, {
+        id: 4,
+        count: 2,
+        isSel: false
+    }, {
+        id: 5,
+        count: 2,
+        isSel: false
     }]
 }
 
 const getters = {
     cartProducts: (state) => {
-        return state.shopcartProducts.map(({ id, count }) => {
+        return state.shopcartProducts.map(({ id, count, isSel }) => {
             const p = products.state.products.find(x => x.id == id);
             return {
                 title: p.title,
                 image: p.image,
                 price: p.price,
                 count,
-                id
+                id,
+                isSel
             }
         })
-    },
-    cartTotalPrice: (state, getters) => {
-        return getters.cartProducts.reduce((total, product) => {      
-            return total + product.price * product.count
-        }, 0);
     }
 }
 
