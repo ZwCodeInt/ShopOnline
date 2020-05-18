@@ -4,7 +4,14 @@
         <div class="headerHr"></div>
         <div class="breadDetail">
             <div class="breadImg">
-                <img :src="product.image" />
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <img :src="product.image" class="swiper-slide" />
+                        <img src="https://upload.jianshu.io/users/upload_avatars/17728182/566af41b-ef5c-4dec-8717-261dec4f1e56.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp" class="swiper-slide" />
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-white" id="swiper-spit"></div>
+                </div>
+                
             </div>
             <div class="con">
                 <div class= "detail ">
@@ -92,6 +99,9 @@
 </template>
 
 <script>
+    import vSwiper from 'swiper';
+    import 'swiper/css/swiper.min.css';
+    import 'swiper/js/swiper.min.js';
     import headerTop from "@/components/tools/header.vue";
     import detailContent from "./content";
     import typeItem from "./typeItem";
@@ -108,7 +118,8 @@
             return {
                 isBuy: false,
                 headerMsg: "产品A",
-                product: {}
+                product: {},              
+                
             }
         },
         methods: {
@@ -118,8 +129,7 @@
             closeItem(data) {
                 this.isBuy = data;
             },
-            getProduct() {
-                
+            getProduct() {        
                 axios({
                     method: 'get',
                     url: 'http://cake.com/cake/single',
@@ -133,11 +143,31 @@
         },
         created() {
             this.getProduct()
+        },
+        mounted() {
+            var swiper = new vSwiper('.swiper-container', {
+                spaceBetween: 30,
+                // effect: 'fade',
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false, // 取消鼠标操作后的轮播暂停【无操作轮播继续】【参考链接1】
+                    stopOnLastSlide: false, // 在最后一页停止
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
         }
     }
 </script>
 
 <style lang="scss" scoped>
+    
     @import '@/assets/style/button.scss';
     .item-enter-active, .item-leave-active {
         transition: all 0.3s ease;
@@ -181,6 +211,7 @@
     .breadImg img{
         width: 100%;
         max-height: 100%;
+        display: block;
     }
     .breadPrize {
         color: brown;
