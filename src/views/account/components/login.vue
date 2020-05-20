@@ -30,7 +30,7 @@
             },
             checkLogin() {
                 if(this.loginInfomation.username == '' || this.loginInfomation.password == '') {
-                        this.$Message['error']({
+                    this.$Message['error']({
                         background: true,
                         content: '请输入账号和密码'
                     });
