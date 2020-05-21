@@ -113,6 +113,12 @@ export default {
   .f20 {
     font-size: .2rem
   }
+  .f18 {
+    font-size: .18rem
+  }
+  .f16 {
+    font-size: .16rem
+  }
   .timer {
     font-size: 12px;
     color: gray;

@@ -227,6 +227,24 @@ const routes = [
         component: () => import('../views/activity/components/coupon/index.vue')
       }
     ]
+  },
+  {
+    path: '/order',
+    name: 'order',
+    component: () => import('../views/order/index.vue'),
+    meta: {
+      keepAlive: false
+    },
+    children: [
+      {
+        name: 'orderConfirm',
+        path: '/order/confirm',
+        component: () => import('../views/order/components/confirm/index.vue'),
+        meta: {
+          keepAlive: false
+        }
+      }
+    ]
   }
 ]
 
